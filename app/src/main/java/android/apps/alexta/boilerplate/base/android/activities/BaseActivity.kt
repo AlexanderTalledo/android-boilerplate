@@ -1,0 +1,28 @@
+package android.apps.alexta.boilerplate.base.android.activities
+
+import android.os.Bundle
+import androidx.annotation.LayoutRes
+import androidx.lifecycle.LifecycleOwner
+import dagger.android.support.DaggerAppCompatActivity
+
+abstract class BaseActivity : DaggerAppCompatActivity() {
+
+    val activity: DaggerAppCompatActivity by lazy { this }
+
+    val lifecycleOwner: LifecycleOwner by lazy { this }
+
+    @LayoutRes
+    internal abstract fun getLayoutId(): Int
+
+    internal abstract fun initViews()
+
+    internal abstract fun initDataObservers()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(getLayoutId())
+        initViews()
+        initDataObservers()
+    }
+
+}
