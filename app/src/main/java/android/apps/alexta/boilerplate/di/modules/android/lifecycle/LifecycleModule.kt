@@ -4,8 +4,8 @@ import android.apps.alexta.boilerplate.base.android.lifecycle.BaseViewModelFacto
 import android.apps.alexta.boilerplate.di.keys.android.lifecycle.ViewModelKey
 import android.apps.alexta.boilerplate.di.modules.android.lifecycle.viewmodels.ViewModelsModule
 import android.apps.alexta.boilerplate.di.scopes.ApplicationScoped
-import android.apps.alexta.boilerplate.ui.SplashViewModel
 import android.apps.alexta.boilerplate.ui.main.MainViewModel
+import android.apps.alexta.boilerplate.ui.splash.SplashViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
