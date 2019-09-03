@@ -11,6 +11,6 @@ abstract class ApplicationModule {
 
     @Binds
     @ApplicationContext
-    abstract fun bindApplicationContext(application: BoilerplateApplication): Context
+    internal abstract fun bindApplicationContext(application: BoilerplateApplication): Context
 
 }

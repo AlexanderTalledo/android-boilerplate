@@ -8,12 +8,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import javax.inject.Inject
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<MainViewModel>() {
 
     @Inject
     lateinit var viewModelFactory: BaseViewModelFactory
 
-    private val viewModel: MainViewModel by lazy {
+    override val viewModel: MainViewModel by lazy {
         ViewModelProviders.of(activity, viewModelFactory).get(MainViewModel::class.java)
     }
 
