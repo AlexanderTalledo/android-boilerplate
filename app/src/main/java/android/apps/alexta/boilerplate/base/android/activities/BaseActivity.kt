@@ -9,7 +9,6 @@ import dagger.android.support.DaggerAppCompatActivity
 abstract class BaseActivity<T: BaseViewModel<*>> : DaggerAppCompatActivity() {
 
     val activity: DaggerAppCompatActivity by lazy { this }
-
     val lifecycleOwner: LifecycleOwner by lazy { this }
 
     abstract val viewModel: T
