@@ -2,6 +2,7 @@ package android.apps.alexta.boilerplate.di.components
 
 import android.apps.alexta.boilerplate.BoilerplateApplication
 import android.apps.alexta.boilerplate.di.modules.ApplicationModule
+import android.apps.alexta.boilerplate.di.modules.android.activities.ActivityBindingModule
 import android.apps.alexta.boilerplate.di.scopes.ApplicationScoped
 import dagger.BindsInstance
 import dagger.Component
@@ -13,7 +14,8 @@ import dagger.android.support.DaggerApplication
 @Component(
     modules = [
         ApplicationModule::class,
-        AndroidSupportInjectionModule::class
+        AndroidSupportInjectionModule::class,
+        ActivityBindingModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<DaggerApplication> {
