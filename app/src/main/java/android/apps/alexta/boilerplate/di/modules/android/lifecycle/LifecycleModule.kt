@@ -4,8 +4,8 @@ import android.apps.alexta.boilerplate.base.android.lifecycle.BaseViewModelFacto
 import android.apps.alexta.boilerplate.di.keys.android.lifecycle.ViewModelKey
 import android.apps.alexta.boilerplate.di.modules.android.lifecycle.viewmodels.ViewModelsModule
 import android.apps.alexta.boilerplate.di.scopes.ApplicationScoped
-import android.apps.alexta.boilerplate.ui.MainViewModel
-import android.apps.alexta.boilerplate.ui.splash.SplashViewModel
+import android.apps.alexta.boilerplate.ui.SplashViewModel
+import android.apps.alexta.boilerplate.ui.main.MainViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
@@ -27,12 +27,12 @@ abstract class LifecycleModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    internal abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
+    @ViewModelKey(SplashViewModel::class)
+    internal abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(SplashViewModel::class)
-    internal abstract fun bindSplashViewModel(splashViewModel: SplashViewModel): ViewModel
+    @ViewModelKey(MainViewModel::class)
+    internal abstract fun bindMainViewModel(mainViewModel: MainViewModel): ViewModel
 
 }

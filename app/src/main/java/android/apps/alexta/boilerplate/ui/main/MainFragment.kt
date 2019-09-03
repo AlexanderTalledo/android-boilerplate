@@ -1,32 +1,29 @@
-package android.apps.alexta.boilerplate.ui
+package android.apps.alexta.boilerplate.ui.main
 
 import android.apps.alexta.boilerplate.R
-import android.apps.alexta.boilerplate.base.android.activities.BaseActivity
+import android.apps.alexta.boilerplate.base.android.fragments.BaseFragment
 import android.apps.alexta.boilerplate.base.android.lifecycle.BaseViewModelFactory
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import javax.inject.Inject
 
-class MainActivity : BaseActivity<MainViewModel>() {
+class MainFragment : BaseFragment<MainViewModel>() {
 
     @Inject
     lateinit var viewModelFactory: BaseViewModelFactory
 
     override val viewModel: MainViewModel by lazy {
-        ViewModelProviders.of(activity, viewModelFactory).get(MainViewModel::class.java)
+        ViewModelProviders.of(parentActivity, viewModelFactory).get(MainViewModel::class.java)
     }
 
-    override fun getLayoutId() = R.layout.activity_main
+    override fun getLayoutId() = R.layout.fragment_main
 
-    override fun initViews() {
-        viewModel.foo()
-    }
+    override fun initViews() {}
 
     override fun initDataObservers() {
         viewModel.viewState.observe(lifecycleOwner, Observer { uiModel ->
             when (uiModel) {
-                MainUiModel.OnFoo -> Toast.makeText(activity, "Yes", Toast.LENGTH_LONG).show()
+
             }
         })
     }

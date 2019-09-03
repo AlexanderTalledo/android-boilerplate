@@ -2,7 +2,7 @@ package android.apps.alexta.boilerplate.di.modules.android.fragments
 
 import android.apps.alexta.boilerplate.di.modules.android.lifecycle.LifecycleModule
 import android.apps.alexta.boilerplate.di.scopes.android.FragmentScoped
-import android.apps.alexta.boilerplate.ui.splash.SplashFragment
+import android.apps.alexta.boilerplate.ui.main.MainFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -11,6 +11,6 @@ abstract class FragmentBindingModule {
 
     @FragmentScoped
     @ContributesAndroidInjector(modules = [LifecycleModule::class])
-    internal abstract fun bindSplashFragment(): SplashFragment
+    internal abstract fun bindMainFragment(): MainFragment
 
 }
