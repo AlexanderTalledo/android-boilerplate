@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.findNavController
 import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.DaggerFragment
 
@@ -15,6 +17,8 @@ abstract class BaseFragment<T : BaseViewModel<*>> : DaggerFragment() {
 
     val parentActivity: FragmentActivity by lazy { this.activity!! }
     val lifecycleOwner: LifecycleOwner by lazy { this }
+
+    private val navController by lazy { view?.findNavController() }
 
     abstract val viewModel: T
 
@@ -42,6 +46,10 @@ abstract class BaseFragment<T : BaseViewModel<*>> : DaggerFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initDataObservers()
+    }
+
+    fun navigateTo(@IdRes destination: Int) {
+        navController?.navigate(destination)
     }
 
 }

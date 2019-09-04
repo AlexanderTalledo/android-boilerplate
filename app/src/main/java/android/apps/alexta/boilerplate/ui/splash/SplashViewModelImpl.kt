@@ -12,4 +12,8 @@ class SplashViewModelImpl : SplashViewModel() {
 
     private val mViewState = MutableLiveData<SplashUiModel>()
 
+    override fun showInitialScreen() {
+        mViewState.value = SplashUiModel.OnMainScreen
+    }
+
 }
