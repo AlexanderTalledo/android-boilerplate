@@ -2,6 +2,10 @@ package android.apps.alexta.boilerplate.di.modules.android.lifecycle.viewmodels
 
 import android.apps.alexta.boilerplate.ui.main.MainViewModel
 import android.apps.alexta.boilerplate.ui.main.MainViewModelImpl
+import android.apps.alexta.boilerplate.ui.main.home.HomeViewModel
+import android.apps.alexta.boilerplate.ui.main.home.HomeViewModelImpl
+import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModel
+import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModelImpl
 import android.apps.alexta.boilerplate.ui.splash.SplashViewModel
 import android.apps.alexta.boilerplate.ui.splash.SplashViewModelImpl
 import dagger.Module
@@ -15,5 +19,11 @@ class ViewModelsModule {
 
     @Provides
     internal fun provideMainViewModel(): MainViewModel = MainViewModelImpl()
+
+    @Provides
+    internal fun provideHomeViewModel(): HomeViewModel = HomeViewModelImpl()
+
+    @Provides
+    internal fun provideProfileViewModel(): ProfileViewModel = ProfileViewModelImpl()
 
 }

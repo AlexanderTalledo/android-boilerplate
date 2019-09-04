@@ -54,6 +54,10 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
+    // Material design
+    def material_design_version = "1.0.0"
+    implementation "com.google.android.material:material:$material_design_version"
+
     // Navigation
     def nav_version = "2.1.0-rc01"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

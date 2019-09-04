@@ -48,6 +48,8 @@ abstract class BaseFragment<T : BaseViewModel<*>> : DaggerFragment() {
         initDataObservers()
     }
 
+    fun findFragmentById(@IdRes id: Int) = childFragmentManager.findFragmentById(id)
+
     fun navigateTo(@IdRes destination: Int) {
         navController?.navigate(destination)
     }
