@@ -1,9 +1,10 @@
 package android.apps.alexta.boilerplate.ui.main.home
 
+import android.apps.alexta.boilerplate.repositories.HomeRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class HomeViewModelImpl : HomeViewModel() {
+class HomeViewModelImpl(private val homeRepository: HomeRepository) : HomeViewModel() {
 
     override val tag = HomeViewModelImpl::class.simpleName
 
@@ -11,5 +12,10 @@ class HomeViewModelImpl : HomeViewModel() {
         get() = mViewState
 
     private val mViewState = MutableLiveData<HomeUiModel>()
+
+    override fun loadHomeList() {
+        val homeList = homeRepository.getHomeList()
+        mViewState.value = HomeUiModel.OnHomeList(homeList)
+    }
 
 }

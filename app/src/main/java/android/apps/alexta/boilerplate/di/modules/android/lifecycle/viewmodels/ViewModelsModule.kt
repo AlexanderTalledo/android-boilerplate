@@ -1,5 +1,6 @@
 package android.apps.alexta.boilerplate.di.modules.android.lifecycle.viewmodels
 
+import android.apps.alexta.boilerplate.repositories.HomeRepository
 import android.apps.alexta.boilerplate.ui.main.MainViewModel
 import android.apps.alexta.boilerplate.ui.main.MainViewModelImpl
 import android.apps.alexta.boilerplate.ui.main.home.HomeViewModel
@@ -21,7 +22,9 @@ class ViewModelsModule {
     internal fun provideMainViewModel(): MainViewModel = MainViewModelImpl()
 
     @Provides
-    internal fun provideHomeViewModel(): HomeViewModel = HomeViewModelImpl()
+    internal fun provideHomeViewModel(
+        homeRepository: HomeRepository
+    ): HomeViewModel = HomeViewModelImpl(homeRepository)
 
     @Provides
     internal fun provideProfileViewModel(): ProfileViewModel = ProfileViewModelImpl()
