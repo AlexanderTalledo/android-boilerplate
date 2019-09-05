@@ -1,5 +1,6 @@
 package android.apps.alexta.boilerplate.di.modules.android.fragments
 
+import android.apps.alexta.boilerplate.di.modules.android.adapters.AdaptersModule
 import android.apps.alexta.boilerplate.di.modules.android.lifecycle.LifecycleModule
 import android.apps.alexta.boilerplate.di.scopes.android.FragmentScoped
 import android.apps.alexta.boilerplate.ui.main.MainFragment
@@ -21,7 +22,7 @@ abstract class FragmentBindingModule {
     internal abstract fun bindMainFragment(): MainFragment
 
     @FragmentScoped
-    @ContributesAndroidInjector(modules = [LifecycleModule::class])
+    @ContributesAndroidInjector(modules = [LifecycleModule::class, AdaptersModule::class])
     internal abstract fun bindHomeFragment(): HomeFragment
 
     @FragmentScoped
