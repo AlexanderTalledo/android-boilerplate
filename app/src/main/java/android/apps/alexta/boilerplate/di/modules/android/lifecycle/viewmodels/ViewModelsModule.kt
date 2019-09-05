@@ -1,6 +1,6 @@
 package android.apps.alexta.boilerplate.di.modules.android.lifecycle.viewmodels
 
-import android.apps.alexta.boilerplate.repositories.HomeRepository
+import android.apps.alexta.boilerplate.di.modules.repositories.RepositoriesModule
 import android.apps.alexta.boilerplate.ui.main.MainViewModel
 import android.apps.alexta.boilerplate.ui.main.MainViewModelImpl
 import android.apps.alexta.boilerplate.ui.main.home.HomeViewModel
@@ -9,24 +9,26 @@ import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModel
 import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModelImpl
 import android.apps.alexta.boilerplate.ui.splash.SplashViewModel
 import android.apps.alexta.boilerplate.ui.splash.SplashViewModelImpl
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 
-@Module
-class ViewModelsModule {
+@Module(includes = [RepositoriesModule::class])
+abstract class ViewModelsModule {
 
-    @Provides
-    internal fun provideSplashViewModel(): SplashViewModel = SplashViewModelImpl()
+    @Binds
+    internal abstract fun provideSplashViewModel(
+        splashViewModelImpl: SplashViewModelImpl
+    ): SplashViewModel
 
-    @Provides
-    internal fun provideMainViewModel(): MainViewModel = MainViewModelImpl()
+    @Binds
+    internal abstract fun provideMainViewModel(mainViewModelImpl: MainViewModelImpl): MainViewModel
 
-    @Provides
-    internal fun provideHomeViewModel(
-        homeRepository: HomeRepository
-    ): HomeViewModel = HomeViewModelImpl(homeRepository)
+    @Binds
+    internal abstract fun provideHomeViewModel(homeViewModelImpl: HomeViewModelImpl): HomeViewModel
 
-    @Provides
-    internal fun provideProfileViewModel(): ProfileViewModel = ProfileViewModelImpl()
+    @Binds
+    internal abstract fun provideProfileViewModel(
+        profileViewModelImpl: ProfileViewModelImpl
+    ): ProfileViewModel
 
 }

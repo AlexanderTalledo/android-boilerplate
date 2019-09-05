@@ -2,8 +2,9 @@ package android.apps.alexta.boilerplate.ui.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import javax.inject.Inject
 
-class SplashViewModelImpl : SplashViewModel() {
+class SplashViewModelImpl @Inject constructor() : SplashViewModel() {
 
     override val tag = SplashViewModelImpl::class.simpleName
 

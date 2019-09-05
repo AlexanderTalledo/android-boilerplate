@@ -3,8 +3,11 @@ package android.apps.alexta.boilerplate.ui.main.home
 import android.apps.alexta.boilerplate.repositories.HomeRepository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import javax.inject.Inject
 
-class HomeViewModelImpl(private val homeRepository: HomeRepository) : HomeViewModel() {
+class HomeViewModelImpl @Inject constructor(
+    private val homeRepository: HomeRepository
+) : HomeViewModel() {
 
     override val tag = HomeViewModelImpl::class.simpleName
 

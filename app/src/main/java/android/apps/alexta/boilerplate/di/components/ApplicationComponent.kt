@@ -4,7 +4,6 @@ import android.apps.alexta.boilerplate.BoilerplateApplication
 import android.apps.alexta.boilerplate.di.modules.ApplicationModule
 import android.apps.alexta.boilerplate.di.modules.android.activities.ActivityBindingModule
 import android.apps.alexta.boilerplate.di.modules.android.fragments.FragmentBindingModule
-import android.apps.alexta.boilerplate.di.modules.repositories.RepositoriesModule
 import android.apps.alexta.boilerplate.di.scopes.ApplicationScoped
 import dagger.BindsInstance
 import dagger.Component
@@ -18,8 +17,7 @@ import dagger.android.support.DaggerApplication
         ApplicationModule::class,
         AndroidSupportInjectionModule::class,
         ActivityBindingModule::class,
-        FragmentBindingModule::class,
-        RepositoriesModule::class
+        FragmentBindingModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<DaggerApplication> {
