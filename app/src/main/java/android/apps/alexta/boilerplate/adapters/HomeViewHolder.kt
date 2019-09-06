@@ -9,12 +9,19 @@ class HomeViewHolder(itemView: View) : BaseViewHolder<String>(itemView) {
 
     private val tvName by lazy { itemView.findViewById<TextView?>(R.id.tvName) }
 
-    override fun bind(data: String, position: Int) {
+    override fun bindData(data: String) {
         bindName(data)
     }
 
     private fun bindName(name: String) {
         tvName?.text = name
+    }
+
+    override fun bindItemClickListener(
+        onItemClick: ((itemView: View, itemPosition: Int) -> Unit)?,
+        position: Int
+    ) {
+        onItemClick?.let { event -> itemView.setOnClickListener { event.invoke(it, position) } }
     }
 
 }

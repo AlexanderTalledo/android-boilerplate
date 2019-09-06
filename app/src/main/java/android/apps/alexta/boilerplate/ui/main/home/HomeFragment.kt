@@ -5,6 +5,7 @@ import android.apps.alexta.boilerplate.adapters.HomeAdapter
 import android.apps.alexta.boilerplate.base.android.fragments.BaseFragment
 import android.apps.alexta.boilerplate.base.android.lifecycle.BaseViewModelFactory
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -36,6 +37,9 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
     }
 
     private fun initHomeRecyclerView() {
+        homeAdapter.setOnItemClickListener { _, itemPosition ->
+            viewModel.loadHomeItem(itemPosition)
+        }
         val layoutManager = LinearLayoutManager(parentActivity)
         val itemDecoration = DividerItemDecoration(
             parentActivity,
@@ -50,6 +54,7 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
         viewModel.viewState.observe(lifecycleOwner, Observer { uiModel ->
             when (uiModel) {
                 is HomeUiModel.OnHomeList -> updateHomeRecyclerViewContent(uiModel.homeList)
+                is HomeUiModel.OnHomeDetail -> showHomeDetailScreen(uiModel.homeItemPosition)
             }
         })
     }
@@ -60,5 +65,10 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
         homeAdapter.addItems(homeList)
         homeAdapter.notifyItemRangeInserted(currentItemsCount, newItemsCount)
     }
+
+    private fun showHomeDetailScreen(homeItemPosition: Int) {
+        Toast.makeText(parentActivity, "Position: $homeItemPosition", Toast.LENGTH_SHORT).show()
+    }
+
 
 }

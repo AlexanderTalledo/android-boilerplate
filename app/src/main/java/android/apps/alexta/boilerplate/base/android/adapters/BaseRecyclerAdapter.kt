@@ -10,6 +10,8 @@ abstract class BaseRecyclerAdapter<T : Any, V : BaseViewHolder<T>>(
     private val list: MutableList<T>
 ) : RecyclerView.Adapter<V>() {
 
+    private var onItemClickListener: ((View, Int) -> Unit)? = null
+
     @LayoutRes
     internal abstract fun getItemLayoutId(): Int
 
@@ -24,10 +26,17 @@ abstract class BaseRecyclerAdapter<T : Any, V : BaseViewHolder<T>>(
     }
 
     override fun onBindViewHolder(holder: V, position: Int) {
-        holder.bind(list[position], position)
+        holder.bindData(list[position])
+        holder.bindItemClickListener(onItemClickListener, position)
     }
 
     override fun getItemCount() = list.size
+
+    internal fun setOnItemClickListener(
+        itemClickListener: ((itemView: View, itemPosition: Int) -> Unit)
+    ) {
+        onItemClickListener = itemClickListener
+    }
 
     internal fun addItems(newItems: List<T>) {
         list.addAll(newItems)

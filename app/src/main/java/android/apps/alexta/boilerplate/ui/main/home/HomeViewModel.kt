@@ -6,4 +6,6 @@ abstract class HomeViewModel : BaseViewModel<HomeUiModel>() {
 
     internal abstract fun loadHomeList()
 
+    internal abstract fun loadHomeItem(itemPosition: Int)
+
 }

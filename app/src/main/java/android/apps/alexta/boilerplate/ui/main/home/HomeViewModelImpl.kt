@@ -21,4 +21,8 @@ class HomeViewModelImpl @Inject constructor(
         mViewState.value = HomeUiModel.OnHomeList(homeList)
     }
 
+    override fun loadHomeItem(itemPosition: Int) {
+        mViewState.value = HomeUiModel.OnHomeDetail(itemPosition)
+    }
+
 }
