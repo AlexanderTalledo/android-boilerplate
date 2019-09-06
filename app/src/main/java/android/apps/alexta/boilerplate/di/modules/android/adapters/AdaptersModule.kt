@@ -8,9 +8,6 @@ import dagger.Provides
 class AdaptersModule {
 
     @Provides
-    internal fun provideHomeAdapter(homeList: MutableList<String>) = HomeAdapter(homeList)
-
-    @Provides
-    internal fun provideHomeList() = mutableListOf<String>()
+    internal fun provideHomeAdapter() = HomeAdapter()
 
 }

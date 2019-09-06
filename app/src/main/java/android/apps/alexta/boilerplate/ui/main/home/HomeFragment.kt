@@ -57,7 +57,7 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
     private fun updateHomeRecyclerViewContent(homeList: List<String>) {
         val currentItemsCount = homeAdapter.itemCount
         val newItemsCount = homeList.size
-        homeAdapter.homeList.addAll(homeList)
+        homeAdapter.addItems(homeList)
         homeAdapter.notifyItemRangeInserted(currentItemsCount, newItemsCount)
     }
 
