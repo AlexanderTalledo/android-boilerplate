@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.annotation.LayoutRes
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.findNavController
-import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.DaggerFragment
+
+inline fun <reified T : Fragment> newFragmentInstance(): Fragment = T::class.java.newInstance()
 
 abstract class BaseFragment<T : BaseViewModel<*>> : DaggerFragment() {
 
