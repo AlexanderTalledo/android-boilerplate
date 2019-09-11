@@ -6,6 +6,7 @@ import android.apps.alexta.boilerplate.di.modules.android.lifecycle.viewmodels.V
 import android.apps.alexta.boilerplate.di.scopes.ApplicationScoped
 import android.apps.alexta.boilerplate.ui.main.MainViewModel
 import android.apps.alexta.boilerplate.ui.main.home.HomeViewModel
+import android.apps.alexta.boilerplate.ui.main.home.details.HomeDetailsViewModel
 import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModel
 import android.apps.alexta.boilerplate.ui.splash.SplashViewModel
 import androidx.lifecycle.ViewModel
@@ -41,6 +42,13 @@ abstract class LifecycleModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     internal abstract fun bindHomeViewModel(homeViewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeDetailsViewModel::class)
+    internal abstract fun bindHomeDetailsViewModel(
+        homeDetailsViewModel: HomeDetailsViewModel
+    ): ViewModel
 
     @Binds
     @IntoMap

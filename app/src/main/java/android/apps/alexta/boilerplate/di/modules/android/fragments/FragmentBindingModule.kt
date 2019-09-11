@@ -5,6 +5,7 @@ import android.apps.alexta.boilerplate.di.modules.android.lifecycle.LifecycleMod
 import android.apps.alexta.boilerplate.di.scopes.android.FragmentScoped
 import android.apps.alexta.boilerplate.ui.main.MainFragment
 import android.apps.alexta.boilerplate.ui.main.home.HomeFragment
+import android.apps.alexta.boilerplate.ui.main.home.details.HomeDetailsFragment
 import android.apps.alexta.boilerplate.ui.main.profile.ProfileFragment
 import android.apps.alexta.boilerplate.ui.splash.SplashFragment
 import dagger.Module
@@ -24,6 +25,10 @@ abstract class FragmentBindingModule {
     @FragmentScoped
     @ContributesAndroidInjector(modules = [LifecycleModule::class, AdaptersModule::class])
     internal abstract fun bindHomeFragment(): HomeFragment
+
+    @FragmentScoped
+    @ContributesAndroidInjector(modules = [LifecycleModule::class])
+    internal abstract fun bindHomeDetailsFragment(): HomeDetailsFragment
 
     @FragmentScoped
     @ContributesAndroidInjector(modules = [LifecycleModule::class])

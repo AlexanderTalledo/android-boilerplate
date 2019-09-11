@@ -5,7 +5,6 @@ import android.apps.alexta.boilerplate.adapters.HomeAdapter
 import android.apps.alexta.boilerplate.base.android.fragments.BaseFragment
 import android.apps.alexta.boilerplate.base.android.lifecycle.BaseViewModelFactory
 import android.os.Bundle
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -67,7 +66,7 @@ class HomeFragment : BaseFragment<HomeViewModel>() {
     }
 
     private fun showHomeDetailScreen(homeItemPosition: Int) {
-        Toast.makeText(parentActivity, "Position: $homeItemPosition", Toast.LENGTH_SHORT).show()
+        navigateTo(R.id.home_details_screen)
     }
 
 

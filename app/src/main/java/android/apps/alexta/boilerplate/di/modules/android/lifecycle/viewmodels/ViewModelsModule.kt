@@ -5,6 +5,8 @@ import android.apps.alexta.boilerplate.ui.main.MainViewModel
 import android.apps.alexta.boilerplate.ui.main.MainViewModelImpl
 import android.apps.alexta.boilerplate.ui.main.home.HomeViewModel
 import android.apps.alexta.boilerplate.ui.main.home.HomeViewModelImpl
+import android.apps.alexta.boilerplate.ui.main.home.details.HomeDetailsViewModel
+import android.apps.alexta.boilerplate.ui.main.home.details.HomeDetailsViewModelImpl
 import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModel
 import android.apps.alexta.boilerplate.ui.main.profile.ProfileViewModelImpl
 import android.apps.alexta.boilerplate.ui.splash.SplashViewModel
@@ -25,6 +27,11 @@ abstract class ViewModelsModule {
 
     @Binds
     internal abstract fun provideHomeViewModel(homeViewModelImpl: HomeViewModelImpl): HomeViewModel
+
+    @Binds
+    internal abstract fun provideHomeDetailsViewModel(
+        homeDetailsViewModelImpl: HomeDetailsViewModelImpl
+    ): HomeDetailsViewModel
 
     @Binds
     internal abstract fun provideProfileViewModel(
